@@ -1,0 +1,27 @@
+{{ define "inicio" }} {{ template "cabecera" }}
+<a class="btn btn-primary" href="/crear">Agregar</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range. }}
+    <tr>
+      <th>{{ .Id }}</th>
+      <td>{{ .Nombre }}</td>
+      <td>{{ .Correo }}</td>
+      <td>
+        <a class="btn btn-success" role="button" href="/editar?id={{ .Id }}">Editar</a>
+        |
+        <a class="btn btn-danger" role="button" href="/borrar?id={{ .Id }}">Borrar</a>
+      </td>
+    </tr>
+    {{ end }}
+  </tbody>
+</table>
+{{ template "footer" }} {{ end }}
